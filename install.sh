@@ -1,3 +1,5 @@
 #!/bin/bash
-rpm -ihv http://yum.puppetlabs.com/puppetlabs-release-el-`lsb_release -rs | cut -c 1`.noarch.rpm
-
+VERSION=`lsb_release -rs | cut -c 1`
+rpm -ihv http://yum.puppetlabs.com/puppetlabs-release-el-${VERSION}.noarch.rpm
+yum install puppet -y
+puppet apply --modulepath ./modules manifests/site.pp

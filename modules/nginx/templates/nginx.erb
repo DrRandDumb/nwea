@@ -1,0 +1,9 @@
+[nginx]
+name=nginx repo
+<% if @operatingsystem == "RedHat" -%>
+baseurl=http://nginx.org/packages/rhel/$releasever/$basearch/
+<% elsif @operatingsystem == "CentOS" -%>
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+<% end %>
+gpgcheck=0
+enabled=1
